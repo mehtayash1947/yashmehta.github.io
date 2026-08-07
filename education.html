@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education · Yash Mehta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">Yash Mehta</a>
+    <nav class="nav-links">
+      <a href="education.html" class="active">Education</a>
+      <a href="research.html">Research &amp; Teaching</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="misc.html">Miscellaneous</a>
+    </nav>
+    <button id="themeBtn" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<main class="page">
+  <div class="wrap">
+    <h1 class="page-title">Education</h1>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <div class="entry-title">Indian Institute of Technology, Madras (Chennai, India)</div>
+          <div class="entry-sub">Integrated B.Tech + M.Tech, Electrical Engineering · Minor in Mathematics</div>
+        </div>
+        <div class="entry-date">Jul 2019 – Jul 2024</div>
+      </div>
+      <ul>
+        <li>CGPA: 8.86 / 10.00.</li>
+      </ul>
+      <p class="edu-para">
+        I spent 5 golden years at IIT Madras, a place I will always call my home. Amidst the
+        beautiful sprawling green campus, filled with the humid charm of tropical trees, adorable
+        scampering of blackbucks and spotted deer and pesky monkeys, I spent the best years of my
+        life so far.
+      </p>
+      <p class="edu-para">
+        Even though most of it went by in hanging out with friends, roaming around campus and
+        hunting for good food, I did spend some really fun hours learning a variety of topics in
+        Electrical Engineering from some really amazing teachers and researchers.
+      </p>
+    </div>
+
+    <div class="misc-group">
+      <h2>Relevant Coursework</h2>
+      <ul class="col2">
+        <li>Computer Organization</li>
+        <li>Digital IC Design</li>
+        <li>CAD for VLSI Systems</li>
+        <li>Digital Systems Testing &amp; Testable Design</li>
+        <li>Multi-Core Computer Architecture</li>
+        <li>Digital Signal Processing</li>
+        <li>Analog Systems &amp; Lab</li>
+        <li>Data Structures and Algorithms</li>
+        <li>Numerical Methods &amp; Scientific Computing</li>
+        <li>Computer Methods in Electrical Engineering</li>
+        <li>Mathematical Modelling in Industry</li>
+        <li>Applied Programming Lab</li>
+      </ul>
+    </div>
+  </div>
+
+  <figure class="full-img">
+    <img src="assets/iit-madras.jpg" alt="IIT Madras campus"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+    <div class="full-ph" style="display:none">IIT Madras — landscape photo<small>add your image at assets/iit-madras.jpg</small></div>
+  </figure>
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="yr"></span> Yash Mehta ·
+    <a href="mailto:y.m.mehta@tue.nl">y.m.mehta@tue.nl</a> ·
+    <a href="https://www.linkedin.com/in/yashmehta" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+(function(){var root=document.documentElement,btn=document.getElementById('themeBtn');
+function setIcon(){var d=root.getAttribute('data-theme')==='dark';btn.textContent=d?'☀':'☾';btn.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode');}
+setIcon();
+btn.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}setIcon();});
+var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();})();
+</script>
+</body>
+</html>
