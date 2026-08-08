@@ -1,0 +1,128 @@
+<svg viewBox="0 0 880 680" xmlns="http://www.w3.org/2000/svg" font-family="'Inter','Segoe UI',sans-serif">
+  <defs>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .t{stroke:#e8595b;stroke-width:2.6;stroke-linecap:round;fill:none}
+      .tg{stroke:#e8595b;stroke-width:4.4;stroke-linecap:round}
+      .w{stroke:#c3b8b3;stroke-width:2;fill:none;stroke-linecap:round}
+      .rail{stroke:#8f9298;stroke-width:2.8;stroke-linecap:round}
+      .lbl{fill:#ece7e5;font-size:19px;font-weight:600}
+      .node{fill:#ffd7d0;font-size:19px;font-weight:700}
+      .tag{fill:#9a8f8b;font-size:13px;font-weight:600}
+      .title{fill:#e8595b;font-size:15px;font-weight:700;letter-spacing:2px}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="680" rx="18" fill="#14100f"/>
+  <text class="title" x="34" y="46">6T SRAM BITCELL</text>
+
+  <!-- power rails -->
+  <line class="rail" x1="300" y1="70" x2="600" y2="70"/>
+  <line class="rail" x1="300" y1="600" x2="600" y2="600"/>
+  <text class="lbl" x="612" y="76">VDD</text>
+  <text class="lbl" x="612" y="606">GND</text>
+
+  <path class="w" d="M340,138 V70"/>
+  <path class="w" d="M560,138 V70"/>
+  <path class="w" d="M340,482 V600"/>
+  <path class="w" d="M560,482 V600"/>
+
+  <!-- storage node vertical wires -->
+  <path class="w" d="M340,222 V398"/>
+  <path class="w" d="M560,222 V398"/>
+
+  <!-- gate buses -->
+  <path class="w" d="M366,180 V440"/>
+  <path class="w" d="M534,180 V440"/>
+
+  <!-- cross-couple: MC net to left gate bus (y=290), hop over right bus -->
+  <path class="w" d="M366,290 H524 M544,290 H560 V310"/>
+  <path class="w" d="M524,290 q10,-11 20,0"/>
+  <!-- cross-couple: MT net to right gate bus (y=330), hop over left bus -->
+  <path class="w" d="M534,330 H376 M356,330 H340 V310"/>
+  <path class="w" d="M376,330 q-10,-11 -20,0"/>
+
+  <!-- bitlines -->
+  <path class="w" d="M160,120 V470"/>
+  <path class="w" d="M740,120 V470"/>
+  <text class="lbl" x="160" y="108" text-anchor="middle">BL</text>
+  <text class="lbl" x="740" y="108" text-anchor="middle">BLB</text>
+
+  <!-- wordline -->
+  <path class="w" d="M210,150 H690"/>
+  <text class="lbl" x="196" y="156" text-anchor="end">WL</text>
+  <path class="w" d="M244,301 V150"/>
+  <path class="w" d="M656,301 V150"/>
+
+  <!-- access to node / bitline -->
+  <path class="w" d="M288,310 H340"/>
+  <path class="w" d="M200,310 H160"/>
+  <path class="w" d="M700,310 H740"/>
+  <path class="w" d="M612,310 H560"/>
+
+  <!-- ===== transistors (inlined) ===== -->
+  <!-- left PMOS (pull-up), gate faces right -->
+  <g transform="translate(340,180) scale(-1,1)">
+    <line class="t" x1="-28" y1="0" x2="-18" y2="0"/>
+    <circle class="t" cx="-13.5" cy="0" r="4.5"/>
+    <line class="tg" x1="-9" y1="-17" x2="-9" y2="17"/>
+    <line class="t" x1="0" y1="-44" x2="0" y2="44"/>
+  </g>
+  <!-- left NMOS (pull-down) -->
+  <g transform="translate(340,440) scale(-1,1)">
+    <line class="t" x1="-28" y1="0" x2="-9" y2="0"/>
+    <line class="tg" x1="-9" y1="-17" x2="-9" y2="17"/>
+    <line class="t" x1="0" y1="-44" x2="0" y2="44"/>
+  </g>
+  <!-- right PMOS (pull-up) -->
+  <g transform="translate(560,180)">
+    <line class="t" x1="-28" y1="0" x2="-18" y2="0"/>
+    <circle class="t" cx="-13.5" cy="0" r="4.5"/>
+    <line class="tg" x1="-9" y1="-17" x2="-9" y2="17"/>
+    <line class="t" x1="0" y1="-44" x2="0" y2="44"/>
+  </g>
+  <!-- right NMOS (pull-down) -->
+  <g transform="translate(560,440)">
+    <line class="t" x1="-28" y1="0" x2="-9" y2="0"/>
+    <line class="tg" x1="-9" y1="-17" x2="-9" y2="17"/>
+    <line class="t" x1="0" y1="-44" x2="0" y2="44"/>
+  </g>
+  <!-- left access NMOS (horizontal), gate up to WL -->
+  <g>
+    <line class="t" x1="200" y1="310" x2="288" y2="310"/>
+    <line class="tg" x1="227" y1="301" x2="261" y2="301"/>
+    <line class="t" x1="244" y1="301" x2="244" y2="292"/>
+  </g>
+  <!-- right access NMOS (horizontal), gate up to WL -->
+  <g>
+    <line class="t" x1="612" y1="310" x2="700" y2="310"/>
+    <line class="tg" x1="639" y1="301" x2="673" y2="301"/>
+    <line class="t" x1="656" y1="301" x2="656" y2="292"/>
+  </g>
+
+  <!-- transistor tags -->
+  <text class="tag" x="300" y="150" text-anchor="end">PL</text>
+  <text class="tag" x="300" y="470" text-anchor="end">NL</text>
+  <text class="tag" x="600" y="150">PR</text>
+  <text class="tag" x="600" y="470">NR</text>
+  <text class="tag" x="244" y="366" text-anchor="middle">AL</text>
+  <text class="tag" x="656" y="366" text-anchor="middle">AR</text>
+
+  <!-- junction dots -->
+  <g fill="#c3b8b3">
+    <circle cx="340" cy="70" r="3.2"/><circle cx="560" cy="70" r="3.2"/>
+    <circle cx="340" cy="600" r="3.2"/><circle cx="560" cy="600" r="3.2"/>
+    <circle cx="366" cy="290" r="3.2"/><circle cx="534" cy="330" r="3.2"/>
+    <circle cx="160" cy="310" r="3.2"/><circle cx="740" cy="310" r="3.2"/>
+    <circle cx="244" cy="150" r="3.2"/><circle cx="656" cy="150" r="3.2"/>
+  </g>
+
+  <!-- storage nodes (glowing) -->
+  <circle cx="340" cy="310" r="6.5" fill="#ff6b6b" filter="url(#glow)"/>
+  <circle cx="560" cy="310" r="6.5" fill="#ff6b6b" filter="url(#glow)"/>
+  <text class="node" x="322" y="298" text-anchor="end">MT</text>
+  <text class="node" x="578" y="298">MC</text>
+</svg>
