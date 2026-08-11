@@ -65,13 +65,15 @@
         <br>
         <p>
           <!--We all love the feeling of the biting into the soft bun followed by the crunchy patty and flavourful sauces of a McDonald's Big MAC burger. But the MAC (Multiply-And-Accumulate) is also a favourite among people who design ML accelerators and Compute-In-Memory architectures. That's because, not only is it the most widely used operation in most Machine Learning algorithms, but it is also one of the most expensive operations (not unlike the Big MAC, which may be priced reasonably but can be very expensive for your health). -->
-          The Multiply-and-Accumulate (MAC) operation is one of the key building blocks of most Machine Learning algorithms. It is an extremely common and also computationally heavy operation used in all Neural Networks for multiplying the Weights of a layer with the Input vector. 
-        </p>  
-        <p>
-      Therefore, to accelerate the hardware implementations of ML algorithms, it becomes essential to accelerate the MAC operation, which is essentially a Matrix multiplication and the state-of-the-art fastest time complexity achieved for that on a CPU is <code>$O(N^2.371)$</code>. Of course, GPU's parallelize the task and make it much faster.
+          The Multiply-and-Accumulate (MAC) operation is one of the key building blocks of most Machine Learning algorithms. It is an extremely common and also computationally heavy operation used in all Neural Networks for multiplying the Weights of a layer with the Input vector. Therefore, to accelerate the hardware implementations of ML algorithms, it becomes essential to accelerate the MAC operation.
         </p>
         <br>
-        The idea of Compute-In-Memory (CIM) is the following : Assume that the Weight matrix <code>$W$</code> is an <code>$N \cross N$</code> matrix to be multiplied with an input vector <code>$X$</code> of length <code>$N$</code>.
+        <p>
+        The idea of Compute-In-Memory (CIM) is essentially : Since the weights and inputs are anyway present in SRAM on chip, we save the data movement costs and also perform parallel computation by computing the MAC operation inside SRAM. And we do that by : "Multiplication at each bitcell, accumulation on each Bit-line".
+      </p>
+        <p>
+        Assume that the Weight matrix $W$ is an $N \cross N$ matrix to be multiplied- with an input vector $X$ of length $N$. In an SRAM, if there are $N \cross N$ bitcells, Bit-lines run vertically, connecting to all the bitcells of one column, whereas Word-lines run horizontally, connecting to all the bitcells of one row.
+      
         <!-- ===== Inline math: wrap LaTeX in single dollar signs ===== -->
         <p>
           Inline equations sit inside the text with single dollar signs — for example the
